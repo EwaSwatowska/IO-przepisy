@@ -1,0 +1,2 @@
+Projekt na Inzynierie Oprogramowania
+Aplikacja do wyszukiwania przepisow z mozliwoscia podania pozadanych badz nie skladnikow oraz oceny przepisu

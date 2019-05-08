@@ -20,7 +20,20 @@ text1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         "nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit " \
         "anim id est laborum. "
 
-result = template.render(title="Znajdź przepis", text1=text1, text2=text1.upper(), title2=title2).encode("utf-8")
+src = "kitek.jpg"
+
+class przepis:
+    def __init__(self, link, nazwa):
+        self.link=link
+        self.nazwa=nazwa
+
+p1=przepis("https://www.w3schools.com/python/python_classes.asp","Jabłko pieczone")
+
+przepisy = [p1]
+
+skladniki=[]
+
+result = template.render(title="Znajdź przepis", text1=text1, text2=text1.upper(), title2=title2, src=src, przepisy=przepisy, skladniki=skladniki).encode("utf-8")
 
 tmp = tempfile.NamedTemporaryFile(delete=False)
 path = tmp.name + '.html'

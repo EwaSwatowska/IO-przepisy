@@ -5,13 +5,30 @@
             <div class="col-md-8">
                 <h4>{{ title2 }}</h4>
                 <div>
-                    <img class="img-fluid" src="D:\Users\Alusia\Desktop\io-przepisy\static\kitek.jpg" alt="Zdjecie przepisu">
+                    <img class="img-fluid" src={{ src }} alt="Zdjecie przepisu">
+                    {{form}}
                 </div>
-                {{ text1 }}
             </div>
             <div class="col-md-4">
                 <h5>Ostatnio czytane:</h5>
-                {{ text2 }}
+                <ul>
+                    {% for przepis in przepisy %}
+                    <li><a href="{{ przepis.link }}">{{ przepis.nazwa }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <h5>Składniki:</h5>
+                    <ul>
+                        {% for skladnik in skladniki %}
+                        <li><amount>{{skladnik.ilosc}} </amount>{{skladnik.reszta}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>{{ text1 }}</div>
             </div>
         </div>
     </div>

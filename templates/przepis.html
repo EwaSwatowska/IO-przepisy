@@ -6,14 +6,18 @@
                 <h4>{{ title2 }}</h4>
                 <div>
                     <img class="img-fluid" src={{ src }} alt="Zdjecie przepisu">
-                    {{form}}
+                </div>
+                <div>
+                    <form>
+                        <!-- podanie liczby osób -->
+                    </form>
                 </div>
             </div>
             <div class="col-md-4">
                 <h5>Ostatnio czytane:</h5>
                 <ul>
                     {% for przepis in przepisy %}
-                    <li><a href="{{ przepis.link }}">{{ przepis.nazwa }}</a></li>
+                    <li><a href="#">{{ przepis.nazwa }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -28,7 +32,10 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <div>{{ text1 }}</div>
+                <div>
+                    <h5>Przepis: </h5>
+                    {{ text1 }}
+                </div>
             </div>
         </div>
     </div>

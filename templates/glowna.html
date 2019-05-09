@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="container glowna-container">
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Podaj składniki, których chcesz użyć w przepisie:</h3>
+                <div>
+                    <form>
+                    <!-- podanie składników -->
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h5>Ostatnio czytane:</h5>
+                <ul>
+                    {% for przepis in przepisy %}
+                    <li><a href="#">{{ przepis.nazwa }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -10,7 +10,9 @@ env = Environment(
 
 env.globals['project_path'] = Path(__file__).parent.absolute()
 
-template = env.get_template("main.html")
+strona="glowna"
+
+template = env.get_template(strona + ".html")
 
 title2 = "Nazwa przepisu"
 
@@ -27,13 +29,13 @@ class przepis:
         self.link=link
         self.nazwa=nazwa
 
-p1=przepis("https://www.w3schools.com/python/python_classes.asp","Jabłko pieczone")
+p1=przepis("#","Jabłko pieczone")
 
 przepisy = [p1]
 
 skladniki=[]
 
-result = template.render(title="Znajdź przepis", text1=text1, text2=text1.upper(), title2=title2, src=src, przepisy=przepisy, skladniki=skladniki).encode("utf-8")
+result = template.render(title="Znajdź przepis", text1=text1, text2=text1.upper(), title2=title2, src=src, przepisy=przepisy, skladniki=skladniki, strona=strona).encode("utf-8")
 
 tmp = tempfile.NamedTemporaryFile(delete=False)
 path = tmp.name + '.html'

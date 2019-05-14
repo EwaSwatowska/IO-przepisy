@@ -10,7 +10,7 @@ env = Environment(
 
 env.globals['project_path'] = Path(__file__).parent.absolute()
 
-strona="glowna"
+strona="przepis"
 
 template = env.get_template(strona + ".html")
 
@@ -33,7 +33,9 @@ p1=przepis("#","Jabłko pieczone")
 
 przepisy = [p1]
 
-skladniki=[]
+skladniki =    [{"ilosc":"1", "reszta":"marchewka"},
+                {"ilosc":"2", "reszta":"pomidor"},
+                {"ilosc":"3", "reszta":"ziemniak"}]
 
 result = template.render(title="Znajdź przepis", text1=text1, text2=text1.upper(), title2=title2, src=src, przepisy=przepisy, skladniki=skladniki, strona=strona).encode("utf-8")
 

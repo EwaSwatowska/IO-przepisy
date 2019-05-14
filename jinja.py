@@ -12,6 +12,8 @@ env.globals['project_path'] = Path(__file__).parent.absolute()
 
 strona="glowna"
 
+lista = ["jabłko", "cebula", "kurczak"]
+
 template = env.get_template(strona + ".html")
 
 title2 = "Nazwa przepisu"
@@ -35,7 +37,7 @@ przepisy = [p1]
 
 skladniki=[]
 
-result = template.render(title="Znajdź przepis", text1=text1, text2=text1.upper(), title2=title2, src=src, przepisy=przepisy, skladniki=skladniki, strona=strona).encode("utf-8")
+result = template.render(title="Znajdź przepis", lista=lista, text1=text1, text2=text1.upper(), title2=title2, src=src, przepisy=przepisy, skladniki=skladniki, strona=strona).encode("utf-8")
 
 tmp = tempfile.NamedTemporaryFile(delete=False)
 path = tmp.name + '.html'

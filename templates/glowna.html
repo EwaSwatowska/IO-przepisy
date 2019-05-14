@@ -3,10 +3,17 @@
     <div class="container glowna-container">
         <div class="row">
             <div class="col-md-8">
-                <h3>Podaj składniki, których chcesz użyć w przepisie:</h3>
+                <h3>Jakich składników chcesz użyć w przepisie? </h3>
                 <div>
                     <form>
-                    <!-- podanie składników -->
+                        <label for="lista-skladnikow">Wybierz skladniki:</label>
+                        <input list="lista" id="lista-skladnikow" name="lista-skladników" />
+
+                            <datalist id="lista">
+                                {% for skladnik in lista %}
+                                <option value="{{skladnik}}">
+                                {% endfor %}
+                            </datalist>
                     </form>
                 </div>
             </div>

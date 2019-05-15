@@ -6,14 +6,66 @@
                 <h3>Jakich składników chcesz użyć w przepisie? </h3>
                 <div>
                     <form>
-                        <label for="lista-skladnikow">Wybierz skladniki:</label>
-                        <input list="lista" id="lista-skladnikow" name="lista-skladników" />
-
+                        <div style="padding: 10px">
+                            <input list="lista" id="lista-skladnikow" name="lista-skladnikow" />
                             <datalist id="lista">
+                                {% for skladnik in lista %}
+                                <option value="{{skladnik}}">
+                                    {% endfor %}
+                            </datalist>
+                            <button type="button" class="btn btn-success">+</button>
+                            <button type="button" class="btn btn-success">-</button>
+                        </div>
+                        <div style="padding: 10px">
+                        <input list="lista" id="lista-skladnikow2" name="lista-skladnikow2" />
+                            <datalist id="lista2">
                                 {% for skladnik in lista %}
                                 <option value="{{skladnik}}">
                                 {% endfor %}
                             </datalist>
+                            <button type="button" class="btn btn-success">+</button>
+                            <button type="button" class="btn btn-success">-</button>
+                        </div>
+                        <div style="padding: 10px">
+                            <input list="lista" id="lista-skladnikow3" name="lista-skladnikow3" />
+                            <datalist id="lista3">
+                                {% for skladnik in lista %}
+                                <option value="{{skladnik}}">
+                                    {% endfor %}
+                            </datalist>
+                            <button type="button" class="btn btn-success">+</button>
+                            <button type="button" class="btn btn-success">-</button>
+                        </div>
+                        <div style="padding: 10px">
+                            <input list="lista" id="lista-skladnikow4" name="lista-skladnikow4" />
+                            <datalist id="lista4">
+                                {% for skladnik in lista %}
+                                <option value="{{skladnik}}">
+                                    {% endfor %}
+                            </datalist>
+                            <button type="button" class="btn btn-success">+</button>
+                            <button type="button" class="btn btn-success">-</button>
+                        </div>
+                        <div style="padding: 10px">
+                            <input list="lista" id="lista-skladnikow5" name="lista-skladnikow5" />
+                            <datalist id="lista5">
+                                {% for skladnik in lista %}
+                                <option value="{{skladnik}}">
+                                    {% endfor %}
+                            </datalist>
+                            <button type="button" class="btn btn-success">+</button>
+                            <button type="button" class="btn btn-success">-</button>
+                        </div>
+                        <div style="padding: 10px">
+                            <input list="lista" id="lista-skladnikow6" name="lista-skladnikow6" />
+                            <datalist id="lista6">
+                                {% for skladnik in lista %}
+                                <option value="{{skladnik}}">
+                                    {% endfor %}
+                            </datalist>
+                            <button type="button" class="btn btn-success">+</button>
+                            <button type="button" class="btn btn-success">-</button>
+                        </div>
                     </form>
                 </div>
             </div>

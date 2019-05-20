@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block javascript %}
+<script src="{{ project_path }}\static\js\przepis.js"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="container main-container">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>{{ title2 }}</h4>
+                <div>
+                    <img class="img-fluid" src={{ src }} alt="Zdjecie przepisu">
+                </div>
+                <div>
+                    <form class="form-inline ">
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Ilość osób</div>
+                            </div>
+                            <input type="number" value="1" min="1" class="form-control" id="numberOfPeople">
+                        </div>
+                        <button type="button" id="changeAmount" class="btn btn-primary mb-2">Zastosuj</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h5>Ostatnio czytane:</h5>
+                <ul>
+                    {% for przepis in przepisy %}
+                    <li><a href="#">{{ przepis.nazwa }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <h5>Składniki:</h5>
+                    <ul>
+                        {% for skladnik in skladniki %}
+                        <li><amount>{{skladnik.ilosc}}</amount> {{skladnik.reszta}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    <h5>Przepis: </h5>
+                    {{ text1 }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

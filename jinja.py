@@ -1,6 +1,9 @@
 import tempfile
 import webbrowser
 from pathlib import Path
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.urls import reverse
+
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 env = Environment(
@@ -8,9 +11,10 @@ env = Environment(
     autoescape=select_autoescape(['html'])
 )
 
+
 env.globals['project_path'] = Path(__file__).parent.absolute()
 
-strona="przepis"
+strona="glowna"
 
 lista = ["jabłko", "cebula", "kurczak"]
 

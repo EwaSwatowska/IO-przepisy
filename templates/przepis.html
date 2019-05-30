@@ -1,29 +1,24 @@
 {% extends "base.html" %}
-{% block javascript %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-    <script src="{{ project_path }}\static\js\przepis.js"></script>
-    <script src="{{ project_path }}\static\js\cookies.js"></script>
-    <script src="{{ project_path }}\static\js\jquery.cookie.js"></script>
-    <script type="text/javascript" src="{{ project_path }}\static\js\jquery.rateit.js\jquery.rateit.min.js"></script>
-    <script type="text/javascript" src="{{ project_path }}\static\js\jquery.rateit.js"></script>
-
-    <script type="text/javascript">
-        setCookie();
-    </script>
+{% load static %}
+{% block javascript-extra %}
+    <script src="{% static "js/przepis.js" %}"></script>
 
 {% endblock %}
 
 {% block body %}
     <div class="container main-container">
         <div class="row">
-            <div class="col-md-8">
-                <h4>{{ title2 }}</h4>
-                <div>
-                    <img class="img-fluid" src={{ src }} alt="Zdjecie przepisu">
+            <div class="col-md-12">
+                <h4>{{ przepis.nazwa_przepisu }}</h4>
+                {% if przepis.zdjecie %}
+                    <div>
+                        <img class="img-fluid" src={{ przepis.zdjecie }} alt="Zdjecie_przepisu">
+                    </div>
+                {% endif %}
+                <div class="rateit" data-rateit-mode="font" style="font-size:50px">
                 </div>
                 <div>
-                    <form class="form-inline " method="post">
-                        {% csrf token %}
+                    <form class="form-inline ">
                         <div class="input-group mb-2 mr-sm-2">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Ilość osób</div>
@@ -33,39 +28,24 @@
                         <button type="button" id="changeAmount" class="btn btn-primary mb-2">Zastosuj</button>
                     </form>
                 </div>
-                <div class="rateit">
-
-                </div>
-            </div>
-            <div class="col-md-4">
-                <h5>Ostatnio czytane:</h5>
-                <p id="demo"></p>
-                <script>
-                    var CookieArray, len, i, text;
-                    CookieArray=getCookie();
-                    len=CookieArray.length;
-                    text="<ul>";
-                    for(i=0;i<len;i++){
-                        text+="<li>"+CookieArray[i]+"</li>";
-                    }
-                    text+="</ul>";
-                    document.getElementById("demo").innerHTML=text;
-                </script>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
+
                 <div>
                     <h5>Składniki:</h5>
                     <ul>
                         {% for skladnik in skladniki %}
-                        <li><amount>{{skladnik.ilosc}}</amount> {{skladnik.reszta}}</li>
+                            <li> {{ skladnik.skladnik }}:
+                                <amount>{{ skladnik.ilosc }}</amount>
+                                {{ skladnik.formatowanie_miary }}</li>
                         {% endfor %}
                     </ul>
                 </div>
                 <div>
-                    <h5>Przepis: </h5>
-                    {{ text1 }}
+                    <h5>Treść przepisu: </h5>
+                    {{ przepis.tresc }}
                 </div>
             </div>
         </div>

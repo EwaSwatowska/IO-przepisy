@@ -1,0 +1,6 @@
+django-autoslug
+djangorestframework
+django
+django-star-ratings
+psycopg2
+Pillow

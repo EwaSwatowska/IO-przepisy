@@ -1,13 +1,16 @@
 from rest_framework import serializers
 from .models import Przepis, Skladnik, Miara, SkladnikiwPrzepisach
 
+
 class IngredientSerializer(serializers.ModelSerializer):
     """
     Serializer for Ingredient model
     """
+
     class Meta:
         model = Skladnik
         fields = '__all__'
+
 
 class RecipeSerializer(serializers.ModelSerializer):
     """
@@ -17,6 +20,8 @@ class RecipeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Przepis
         fields = '__all__'
+
+
 class MeasurmentSerializer(serializers.ModelSerializer):
     """
     Serializer for Measurement model
@@ -25,6 +30,7 @@ class MeasurmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Miara
         fields = '__all__'
+
 
 class IngInRecSerializer(serializers.ModelSerializer):
     """
@@ -36,4 +42,4 @@ class IngInRecSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SkladnikiwPrzepisach
-        fields = '__all__'#('', '', '', '', '')
+        fields = '__all__'  # ('', '', '', '', '')

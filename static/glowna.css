@@ -1,7 +1,25 @@
-.glowna-container{
+.glowna-container {
     padding: 70px;
 }
-.szukaj{
+
+.szukaj {
     padding: 30px;
     text-align: center;
 }
+
+.main-container {
+    padding: 70px;
+}
+
+.img-fluid {
+    padding: 30px;
+}
+
+.wyniki-container {
+    padding: 70px;
+}
+
+.pager {
+    text-align: center;
+}
+

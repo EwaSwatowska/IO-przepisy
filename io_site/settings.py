@@ -1,22 +1,19 @@
 # Django settings for IO project
 from __future__ import unicode_literals
 
-import os
-import io
 import configparser
-from django.utils.translation import ugettext_lazy as _
-
-from os.path import dirname, join, abspath
-
+import io
+import os
+from os.path import join
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 def get_env_variable(var_name, default=False):
     """
     Get the environment variable or return exception
+    :param default: 
     :param var_name: Environment Variable to lookup
     adapted rh0dium code https://stackoverflow.com/a/21619127/9929776
     (python 2.* -> python 3.*; taken care of special characters errors)
@@ -24,7 +21,7 @@ def get_env_variable(var_name, default=False):
     try:
         return os.environ[var_name]
     except KeyError:
-        env_file = os.environ.get('PROJECT_ENV_FILE', STATIC_ROOT + "/.env")
+        env_file = os.environ.get('PROJECT_ENV_FILE', os.path.join(BASE_DIR, "static") + "/.env")
         try:
             config = io.StringIO()
             config.write("[DATA]\n")
@@ -48,20 +45,21 @@ def get_env_variable(var_name, default=False):
                         "{env_file} file as '{var} = VALUE'"
             raise ImproperlyConfigured(error_msg.format(var=var_name, env_file=env_file))
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = get_env_variable('SECRET_KEY')
 
-#SECRET_KEY = os.getenv('SECRET_KEY', 'Not Set')
+# SECRET_KEY = os.getenv('SECRET_KEY', 'Not Set')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-#allowing anonymous rating
+# allowing anonymous rating
 STAR_RATINGS_ANONYMOUS = True
 
 REST_FRAMEWORK = {
@@ -71,21 +69,17 @@ REST_FRAMEWORK = {
 
 # Application definition
 INSTALLED_APPS = [
-    'search4recipes.apps.Search4RecipesConfig',
-    'django.contrib.admin',#The admin site.
-    'django.contrib.auth', #An authentication system.
-    'django.contrib.contenttypes',#A framework for content types.
-    'django.contrib.sessions',#A session framework.
-    'django.contrib.messages',# A messaging framework.
-    'django.contrib.staticfiles',#A framework for managing static files.
-    #'djangoratings' - too old, not supported, not workin on python3
-    'star_ratings',#A generic ratings module.
+    'django.contrib.admin',  # The admin site.
+    'django.contrib.auth',  # An authentication system.
+    'django.contrib.contenttypes',  # A framework for content types.
+    'django.contrib.sessions',  # A session framework.
+    'django.contrib.messages',  # A messaging framework.
+    'django.contrib.staticfiles',  # A framework for managing static files.
+    'search4recipes',
     'autoslug',
     'rest_framework',
 
-
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -116,24 +110,22 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'IO-przepisy.wsgi.application'
-
+WSGI_APPLICATION = 'io_site.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE':'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'CookBook',
-        'USER': 'cookbookuser',
-        'PASSWORD': get_env_variable('PASSWORD'),
+        'USER': 'postgres',
+        # 'PASSWORD': get_env_variable('PASSWORD'),
+        'PASSWORD': 'io-przepisy',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5433',
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -153,7 +145,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -162,8 +153,8 @@ LANGUAGE_CODE = 'en-gb'
 
 ugettext = lambda s: s
 LANGUAGES = (
-     ('en-gb', ugettext('English')),
-     ('pl', ugettext('Polish')),
+    ('en-gb', ugettext('English')),
+    ('pl', ugettext('Polish')),
 )
 
 TIME_ZONE = 'Europe/Warsaw'
@@ -174,26 +165,25 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 
-
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 
-CACHE_BACKEND = "file://"+os.path.join(BASE_PATH, 'cache')
-
+CACHE_BACKEND = "file://" + os.path.join(BASE_PATH, 'cache')
 
 MEDIA_ROOT = join(BASE_PATH, 'media')
 MEDIA_URL = '/media/'
 
 PHOTO_MEDIA_URL = 'photos/'
 
-STATIC_ROOT = os.path.join(BASE_PATH, 'static')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 AUTH_PROFILE_MODULE = 'accounts.UserProfiles'
 
-FS_IMAGE_UPLOADS = os.path.join(MEDIA_ROOT,'photos/')
-FS_IMAGE_URL = os.path.join(MEDIA_URL,'photos/')
+FS_IMAGE_UPLOADS = os.path.join(MEDIA_ROOT, 'photos/')
+FS_IMAGE_URL = os.path.join(MEDIA_URL, 'photos/')

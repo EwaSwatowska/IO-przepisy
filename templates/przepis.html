@@ -1,15 +1,21 @@
 {% extends "base.html" %}
-{% block javascript %}
-<script src="{{ project_path }}\static\js\przepis.js"></script>
+{% load static %}
+{% block javascript-extra %}
+    <script src="{% static "js/przepis.js" %}"></script>
+
 {% endblock %}
 
 {% block body %}
     <div class="container main-container">
         <div class="row">
-            <div class="col-md-8">
-                <h4>{{ title2 }}</h4>
-                <div>
-                    <img class="img-fluid" src={{ src }} alt="Zdjecie przepisu">
+            <div class="col-md-12">
+                <h4>{{ przepis.nazwa_przepisu }}</h4>
+                {% if przepis.zdjecie %}
+                    <div>
+                        <img class="img-fluid" src={{ przepis.zdjecie }} alt="Zdjecie_przepisu">
+                    </div>
+                {% endif %}
+                <div class="rateit" data-rateit-mode="font" style="font-size:50px">
                 </div>
                 <div>
                     <form class="form-inline ">
@@ -23,28 +29,23 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-4">
-                <h5>Ostatnio czytane:</h5>
-                <ul>
-                    {% for przepis in przepisy %}
-                    <li><a href="#">{{ przepis.nazwa }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
         </div>
         <div class="row">
             <div class="col-md-12">
+
                 <div>
                     <h5>Składniki:</h5>
                     <ul>
                         {% for skladnik in skladniki %}
-                        <li><amount>{{skladnik.ilosc}}</amount> {{skladnik.reszta}}</li>
+                            <li> {{ skladnik.skladnik }}:
+                                <amount>{{ skladnik.ilosc }}</amount>
+                                {{ skladnik.formatowanie_miary }}</li>
                         {% endfor %}
                     </ul>
                 </div>
                 <div>
-                    <h5>Przepis: </h5>
-                    {{ text1 }}
+                    <h5>Treść przepisu: </h5>
+                    {{ przepis.tresc }}
                 </div>
             </div>
         </div>

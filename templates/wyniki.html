@@ -4,31 +4,42 @@
         <div class="row">
             <div class="col-md-8">
                 <ul>
-                    {% for przepis in przepisy %}
-                    <li><a href="#">{{ przepis.nazwa }}</a></li>
+                    {% for przepis in przepisy.object_list %}
+                        <li><a href="{% url 'recipe_detail' recipeid=przepis.id %}">{{ przepis.nazwa_przepisu }}</a>
+                        </li>
                     {% endfor %}
                 </ul>
             </div>
             <div class="col-md-4">
                 <h5>Ostatnio czytane:</h5>
                 <ul>
-                    {% for przepis in przepisy %}
-                    <li><a href="#">{{ przepis.nazwa }}</a></li>
-                    {% endfor %}
+                    {#                    {% for przepis in przepisy %}#}
+                    {#                        <li><a href="#">{{ przepis.nazwa }}</a></li>#}
+                    {#                    {% endfor %}#}
                 </ul>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="pager">
-                    <a href="#" class="btn btn-success" role="button">Poprzednia strona</a>
-                </div>
+                {% if przepisy.has_previous %}
+                    <div class="pager">
+                        <a href="?page={{ przepisy.previous_page_number }}" class="btn btn-success" role="button">Poprzednia
+                            strona</a>
+                    </div>
+                {% endif %}
             </div>
             <div class="col-md-4">
-                <div class="pager">
-                    <a href="#" class="btn btn-success" role="button">Następna strona</a>
-                </div>
+                {{ przepisy.number }} / {{ przepisy.end_index }}
+            </div>
+            <div class="col-md-4">
+                {% if przepisy.has_next %}
+                    <div class="pager">
+                        <a href="?page={{ przepisy.next_page_number }}" class="btn btn-success" role="button">Następna
+                            strona</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
+
     </div>
 {% endblock %}

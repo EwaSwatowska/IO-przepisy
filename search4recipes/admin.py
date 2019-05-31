@@ -1,9 +1,9 @@
 # Register your models here.
 from django.contrib import admin
 
-from .models import Miara, SkladnikiwPrzepisach, Przepis, Skladnik
+from .models import Measurement, IngredientsInRecipes, Recipe, Ingredient
 
-admin.site.register(Skladnik)
-admin.site.register(Miara)
-admin.site.register(Przepis)
-admin.site.register(SkladnikiwPrzepisach)
+admin.site.register(Ingredient)
+admin.site.register(Measurement)
+admin.site.register(Recipe)
+admin.site.register(IngredientsInRecipes)

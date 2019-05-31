@@ -149,13 +149,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 
-LANGUAGE_CODE = 'en-gb'
-
-ugettext = lambda s: s
-LANGUAGES = (
-    ('en-gb', ugettext('English')),
-    ('pl', ugettext('Polish')),
-)
+LANGUAGE_CODE = 'pl'
 
 TIME_ZONE = 'Europe/Warsaw'
 

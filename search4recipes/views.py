@@ -1,76 +1,24 @@
 from django.core.paginator import Paginator
+from django.http import JsonResponse
 from django.shortcuts import render
-from rest_framework import viewsets, status
-from rest_framework.response import Response
-from rest_framework.views import APIView
 
-from .models import Przepis, Skladnik, Miara, SkladnikiwPrzepisach
-from .serializers import RecipeSerializer, IngredientSerializer, IngInRecSerializer, MeasurmentSerializer
-
-
-class IndexView(APIView):
-    """
-    API view for searching Recipes
-    """
-    allowed_methods = ['GET']
-    serializer_class = RecipeSerializer
-
-
-def get(self, request, *args, **kwargs):
-    queryset = Przepis.objects.all()
-
-    # filtering recipes by name
-    name = request.query_params.get('name', None)
-    if name is not None:
-        queryset = queryset.filter(name__icontains=name)
-
-    serializer = self.serializer_class(queryset, many=True)
-    return Response(serializer.data, status=status.HTTP_200_OK)
-
-
-class PrzepisViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows Recipes to be viewed or edited.
-    """
-    queryset = Przepis.objects.all().order_by('nazwa_przepisu')
-    serializer_class = RecipeSerializer
-
-
-class SkladnikViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows ingredients to be viewed or edited.
-    """
-    queryset = Skladnik.objects.all()
-    serializer_class = IngredientSerializer
-
-
-class MiaraViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows measurements to be viewed or edited.
-    """
-    queryset = Miara.objects.all()
-    serializer_class = MeasurmentSerializer
-
-
-class SkladnikiWPrzepisachViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows whole recipes to be viewed or edited.
-    """
-    queryset = SkladnikiwPrzepisach.objects.all()
-    serializer_class = IngInRecSerializer
-
-
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+from .models import Recipe, Ingredient
+import json
 
 
 def home(request):
-    skladniki = [x.nazwa_produktu for x in Skladnik.objects.all()]
+    recipes = " "
+    skladniki = [x.ingredient_name for x in Ingredient.objects.all()]
+    # if 'visited_recipes' in request.COOKIES:
+    #     recipes = json.load(request.COOKIES['visited_recipes'])
+    print(recipes)
+    print(request.COOKIES['visited_recipes'])
     return render(request, 'glowna.html', {"lista": skladniki})
 
 
 def recipe_detail(request, recipeid):
-    recipe = Przepis.objects.get(id=recipeid)
-    skladniki = [x for x in recipe.skladnikiwprzepisach_set.all()]
+    recipe = Recipe.objects.get(id=recipeid)
+    skladniki = [x for x in recipe.ingredientsinrecipes_set.all()]
     return render(request, 'przepis.html', {"przepis": recipe, "skladniki": skladniki})
 
 
@@ -81,11 +29,23 @@ def recipe_list(request):
                        request.POST['isPositive' + str(i)] == 'off' and request.POST['lista-skladnikow' + str(i)] != '']
     for ingredient in ingredients + ingredients_not:
         try:
-            Skladnik.objects.get(nazwa_produktu=ingredient)
-        except Skladnik.DoesNotExist:
+            Ingredient.objects.get(ingredient_name=ingredient)
+        except Ingredient.DoesNotExist:
             return render(request, 'glowna.html', {'ingredientNotFound': ingredient})
-    przepisy = Przepis.get_by_ingredients(ingredients, ingredients_not)
+    przepisy = Recipe.get_by_ingredients(ingredients, ingredients_not)
     paginator = Paginator(przepisy, 10)
     page = request.GET.get('page', 1)
     przepisy = paginator.get_page(page)
     return render(request, 'wyniki.html', {'przepisy': przepisy})
+
+
+def update_mark(request):
+    recipe_id = request.GET.get("recipe_id")
+    mark = float(request.GET.get("mark"))
+    if recipe_id is None or mark is None or not request.is_ajax():
+        return JsonResponse({"ok": False})
+    recipe = Recipe.objects.get(id=recipe_id)
+    recipe.mark = (recipe.mark * recipe.amount_of_marks + mark) / (recipe.amount_of_marks + 1)
+    recipe.amount_of_marks += 1
+    recipe.save()
+    return JsonResponse({"ok": True, "mark": recipe.mark, "amount_of_marks": recipe.amount_of_marks})

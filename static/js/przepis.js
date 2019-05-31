@@ -21,3 +21,28 @@
     }
 }());
 
+function convertCookieToArray(cookie) {
+    var result;
+    if (typeof cookie !== 'undefined') {
+        result = JSON.parse(cookie);
+    } else {
+        result = [];
+    }
+    return result;
+}
+
+function updateMark(cur_recipe, value, url) {
+    $.ajax({
+        url: url,
+        data: {recipe_id: cur_recipe, mark: value},
+        type: 'GET',
+        success: function (data) {
+            if (data['ok']) {
+                voted_recipes.push(cur_recipe);
+                $.cookie('voted_recipes', JSON.stringify(voted_recipes), {expires: 1000});
+            } else {
+                alert('Wystąpił błąd przy dodawaniu oceny!');
+            }
+        }
+    });
+}

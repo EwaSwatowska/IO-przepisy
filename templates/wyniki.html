@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-md-8">
                 <ul>
-                    {% for przepis in przepisy.object_list %}
-                        <li><a href="{% url 'recipe_detail' recipeid=przepis.id %}">{{ przepis.nazwa_przepisu }}</a>
+                    {% for recipe in recipes.object_list %}
+                        <li><a href="{% url 'recipe_detail' recipeid=recipe.id %}">{{ recipe.recipe_title }}</a>
                         </li>
                     {% endfor %}
                 </ul>
@@ -21,25 +21,24 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                {% if przepisy.has_previous %}
+                {% if recipes.has_previous %}
                     <div class="pager">
-                        <a href="?page={{ przepisy.previous_page_number }}" class="btn btn-success" role="button">Poprzednia
+                        <a href="?page={{ recipes.previous_page_number }}" class="btn btn-success" role="button">Poprzednia
                             strona</a>
                     </div>
                 {% endif %}
             </div>
             <div class="col-md-4">
-                {{ przepisy.number }} / {{ przepisy.end_index }}
+                {{ recipes.number }} / {{ recipes.end_index }}
             </div>
             <div class="col-md-4">
-                {% if przepisy.has_next %}
+                {% if recipes.has_next %}
                     <div class="pager">
-                        <a href="?page={{ przepisy.next_page_number }}" class="btn btn-success" role="button">Następna
+                        <a href="?page={{ recipes.next_page_number }}" class="btn btn-success" role="button">Następna
                             strona</a>
                     </div>
                 {% endif %}
             </div>
         </div>
-
     </div>
 {% endblock %}

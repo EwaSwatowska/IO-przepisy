@@ -3,16 +3,10 @@ from django.http import JsonResponse
 from django.shortcuts import render
 
 from .models import Recipe, Ingredient
-import json
 
 
 def home(request):
-    recipes = " "
     skladniki = [x.ingredient_name for x in Ingredient.objects.all()]
-    # if 'visited_recipes' in request.COOKIES:
-    #     recipes = json.load(request.COOKIES['visited_recipes'])
-    print(recipes)
-    print(request.COOKIES['visited_recipes'])
     return render(request, 'glowna.html', {"lista": skladniki})
 
 
@@ -36,7 +30,7 @@ def recipe_list(request):
     paginator = Paginator(przepisy, 10)
     page = request.GET.get('page', 1)
     przepisy = paginator.get_page(page)
-    return render(request, 'wyniki.html', {'przepisy': przepisy})
+    return render(request, 'wyniki.html', {'recipes': przepisy})
 
 
 def update_mark(request):

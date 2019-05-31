@@ -78,7 +78,6 @@ INSTALLED_APPS = [
     'search4recipes',
     'autoslug',
     'rest_framework',
-
 ]
 
 MIDDLEWARE = [
@@ -96,8 +95,7 @@ ROOT_URLCONF = 'io_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,10 +118,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'CookBook',
         'USER': 'postgres',
-        # 'PASSWORD': get_env_variable('PASSWORD'),
-        'PASSWORD': 'io-przepisy',
-        'HOST': 'localhost',
-        'PORT': '5433',
+        'PASSWORD': get_env_variable('POSTGRES_PASSWORD'),
+        'HOST': get_env_variable('POSTGRES_HOST'),
+        'PORT': get_env_variable('POSTGRES_PORT'),
     }
 }
 

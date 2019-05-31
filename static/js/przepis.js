@@ -10,7 +10,7 @@
 
     function changeAmount(scale) {
         document.querySelectorAll('amount').forEach((e, i) => {
-            e.innerHTML = parseInt(defaultAmount[i]) * scale
+            e.innerHTML = parseFloat(defaultAmount[i]) * scale
         });
     }
 
@@ -31,7 +31,7 @@ function convertCookieToArray(cookie) {
     return result;
 }
 
-function updateMark(cur_recipe, value, url) {
+function updateMark(cur_recipe, value, url, voted_recipes) {
     $.ajax({
         url: url,
         data: {recipe_id: cur_recipe, mark: value},

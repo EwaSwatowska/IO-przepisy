@@ -10,7 +10,7 @@ from os.path import join
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-def get_env_variable(var_name, default=False):
+def get_env_variable(var_name, default=None):
     """
     Get the environment variable or return exception
     :param default: 
@@ -38,7 +38,7 @@ def get_env_variable(var_name, default=False):
             os.environ.setdefault(var_name, value)
             return value
         except (KeyError, IOError):
-            if default is not False:
+            if default is not None:
                 return default
             from django.core.exceptions import ImproperlyConfigured
             error_msg = "Either set the env variable '{var}' or place it in your " \
@@ -118,9 +118,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'CookBook',
         'USER': 'postgres',
-        'PASSWORD': get_env_variable('POSTGRES_PASSWORD'),
-        'HOST': get_env_variable('POSTGRES_HOST'),
-        'PORT': get_env_variable('POSTGRES_PORT'),
+        'PASSWORD': get_env_variable('POSTGRES_PASSWORD', 'io-przepisy'),
+        'HOST': get_env_variable('POSTGRES_HOST', 'localhost'),
+        'PORT': get_env_variable('POSTGRES_PORT', 5433),
     }
 }
 
@@ -146,15 +146,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 
-LANGUAGE_CODE = 'pl'
-
+LANGUAGE_CODE = 'pl-pl'
 TIME_ZONE = 'Europe/Warsaw'
-
-USE_I18N = False
-
+USE_I18N = True
 USE_L10N = True
-
-USE_TZ = True
+# USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/

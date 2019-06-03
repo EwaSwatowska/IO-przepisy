@@ -1,36 +1,39 @@
 from django.core.paginator import Paginator
 from django.http import JsonResponse
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
 from .models import Recipe, Ingredient
 
 
-def home(request):
-    skladniki = [x.ingredient_name for x in Ingredient.objects.all()]
-    return render(request, 'glowna.html', {"lista": skladniki})
+def home(request, missing_ingredient=None):
+    ingredients = [x.ingredient_name for x in Ingredient.objects.all()]
+    return render(request, 'glowna.html', {"lista": ingredients, 'ingredientNotFound': missing_ingredient})
 
 
-def recipe_detail(request, recipeid):
-    recipe = Recipe.objects.get(id=recipeid)
-    skladniki = [x for x in recipe.ingredientsinrecipes_set.all()]
-    return render(request, 'przepis.html', {"przepis": recipe, "skladniki": skladniki})
+def recipe_detail(request, recipe_id):
+    recipe = Recipe.objects.get(id=recipe_id)
+    ingredients = [x for x in recipe.ingredientsinrecipes_set.all()]
+    return render(request, 'przepis.html', {"przepis": recipe, "skladniki": ingredients})
 
 
 def recipe_list(request):
-    ingredients = [request.POST['lista-skladnikow' + str(i)] for i in range(6) if
-                   request.POST['isPositive' + str(i)] == 'on' and request.POST['lista-skladnikow' + str(i)] != '']
-    ingredients_not = [request.POST['lista-skladnikow' + str(i)] for i in range(6) if
-                       request.POST['isPositive' + str(i)] == 'off' and request.POST['lista-skladnikow' + str(i)] != '']
-    for ingredient in ingredients + ingredients_not:
-        try:
-            Ingredient.objects.get(ingredient_name=ingredient)
-        except Ingredient.DoesNotExist:
-            return render(request, 'glowna.html', {'ingredientNotFound': ingredient})
-    przepisy = Recipe.get_by_ingredients(ingredients, ingredients_not)
-    paginator = Paginator(przepisy, 10)
-    page = request.GET.get('page', 1)
-    przepisy = paginator.get_page(page)
-    return render(request, 'wyniki.html', {'recipes': przepisy})
+    try:
+        ingredients = [request.POST['lista-skladnikow' + str(i)] for i in range(6) if
+                       request.POST['isPositive' + str(i)] == 'on' and request.POST['lista-skladnikow' + str(i)] != '']
+        ingredients_not = [request.POST['lista-skladnikow' + str(i)] for i in range(6) if
+                           request.POST['isPositive' + str(i)] == 'off' and request.POST[
+                               'lista-skladnikow' + str(i)] != '']
+        for ingredient in ingredients + ingredients_not:
+            try:
+                Ingredient.objects.get(ingredient_name=ingredient)
+            except Ingredient.DoesNotExist:
+                return home(request, missing_ingredient=ingredient)
+        recipes = Recipe.get_by_ingredients(ingredients, ingredients_not)
+        paginator = Paginator(recipes, 10)
+        page = request.GET.get('page', 1)
+        recipes = paginator.get_page(page)
+        return render(request, 'wyniki.html', {'recipes': recipes})
+    except KeyError:
+        return redirect('home')
 
 
 def update_mark(request):
@@ -39,7 +42,7 @@ def update_mark(request):
     if recipe_id is None or mark is None or not request.is_ajax():
         return JsonResponse({"ok": False})
     recipe = Recipe.objects.get(id=recipe_id)
-    recipe.mark = (recipe.mark * recipe.amount_of_marks + mark) / (recipe.amount_of_marks + 1)
-    recipe.amount_of_marks += 1
+    recipe.rate = (recipe.rate * recipe.amount_of_rates + mark) / (recipe.amount_of_rates + 1)
+    recipe.amount_of_rates += 1
     recipe.save()
-    return JsonResponse({"ok": True, "mark": recipe.mark, "amount_of_marks": recipe.amount_of_marks})
+    return JsonResponse({"ok": True, "rate": recipe.rate, "amount_of_rates": recipe.amount_of_rates})

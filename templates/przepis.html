@@ -17,9 +17,9 @@
                 <div>
                     <div>
                         Ocena:
-                        <mark>{{ przepis.mark }}</mark>
+                        <rate>{{ przepis.rate|stringformat:'0.2f' }}</rate>
                         Ilość ocen:
-                        <amount_marks>{{ przepis.amount_of_marks }}</amount_marks>
+                        <amount_rates>{{ przepis.amount_of_rates }}</amount_rates>
                     </div>
                     <input step="1" id="rating">
                     <div class="rateit" data-rateit-mode="font" style="font-size:2em" data-rateit-resetable="false"
@@ -47,7 +47,7 @@
                     <ul>
                         {% for skladnik in skladniki %}
                             <li> {{ skladnik.ingredient }}:
-                                <amount>{{ skladnik.amount }}</amount>
+                                <amount>{{ skladnik.amount|stringformat:'0.2f' }}</amount>
                                 {{ skladnik.measurement_formatting }}</li>
                         {% endfor %}
                     </ul>
@@ -61,26 +61,26 @@
     </div>
     <script>
         $(document).ready(function () {
-            var cur_recipe = {{ przepis.id }};
-            var cookie_is_recipe_voted = $.cookie('voted_recipes');
-            var voted_recipes = convertCookieToArray(cookie_is_recipe_voted);
+            let cur_recipe = {{ przepis.id }};
+            let cookie_voted_recipes = $.cookie('voted_recipes');
+            let voted_recipes = convertCookieToArray(cookie_voted_recipes);
             $(".rateit").bind('rated', function (event, value) {
                 if (!voted_recipes.includes(cur_recipe)) {
-                    updateMark(cur_recipe, value, '{% url "update_mark" %}')
+                    updateMarkInDB(cur_recipe, value, '{% url "update_mark" %}', voted_recipes);
                 } else {
                     alert("Oceniłeś już ten przepis!")
                 }
             });
 
-            var cur_cookie = $.cookie('visited_recipes');
-            var visited_recipes = convertCookieToArray(cur_cookie);
+            let cookie_visited_recipes = $.cookie('visited_recipes');
+            let visited_recipes = convertCookieToArray(cookie_visited_recipes);
             if (visited_recipes.includes(cur_recipe)) {
                 visited_recipes.push(cur_recipe);
             }
             if (visited_recipes.length > 5) {
-                visited_recipes = visited_recipes.slice(visited_recipes.length - 1);
+                visited_recipes = visited_recipes.slice(5);
             }
-            $.cookie('visited_recipes', JSON.stringify(visited_recipes), {expires: 1000});
+            $.cookie('visited_recipes', JSON.stringify(visited_recipes), {expires: 1000, path: '/'});
         });
     </script>
 {% endblock %}

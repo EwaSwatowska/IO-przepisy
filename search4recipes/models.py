@@ -39,9 +39,9 @@ class Recipe(models.Model):
     image = models.ImageField(_('Zdjęcie przepisu'), blank=True, upload_to=settings.PHOTO_MEDIA_URL,
                               storage=FileSystemStorage(location=settings.FS_IMAGE_UPLOADS,
                                                         base_url=settings.FS_IMAGE_URL))
-    mark = models.FloatField(_('Ocena'), default=0)
+    rate = models.FloatField(_('Ocena'), default=0)
     text = models.TextField(_('Treść przepisu'), default="")
-    amount_of_marks = models.IntegerField(_('Ilosc_ocen'), default=0)
+    amount_of_rates = models.IntegerField(_('Ilosc_ocen'), default=0)
     ingredients = models.ManyToManyField(Ingredient, through='search4recipes.IngredientsInRecipes')
 
     def __unicode__(self):
@@ -66,8 +66,8 @@ class Measurement(models.Model):
     """
     Model miar: tablica jednostek miar skladnikow
     """
-    unit = models.CharField(max_length=250, unique=True, verbose_name=_('Jednostka miary'))
-    measurement_use = models.CharField(max_length=60, verbose_name=_('Użycie jednostki'))
+    unit = models.CharField(max_length=250, unique=True, verbose_name=_('Nazwa'))
+    measurement_use = models.CharField(max_length=60, verbose_name=_('Jednostka w przepisie'))
 
     def __unicode__(self):
         return self.unit
@@ -88,7 +88,7 @@ class IngredientsInRecipes(models.Model):
     recipe = models.ForeignKey(Recipe, verbose_name=_('Przepis'), on_delete=models.PROTECT)
     measurement = models.ForeignKey(Measurement, verbose_name=_('Miara'), blank=False, null=False,
                                     on_delete=models.PROTECT)
-    amount = models.FloatField(_('Ilość'), max_length=200, blank=True, null=True)
+    amount = models.FloatField(_('Ilość'), max_length=200, blank=False, null=False, default=1)
 
     def __unicode__(self):
         return self.recipe.recipe_title

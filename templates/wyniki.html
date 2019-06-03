@@ -14,7 +14,7 @@
             <div class="col-md-8">
                 <ul>
                     {% for recipe in recipes.object_list %}
-                        <li><a href="{% url 'recipe_detail' recipeid=recipe.id %}">{{ recipe.recipe_title }}</a>
+                        <li><a href="{% url 'recipe_detail' recipe_id=recipe.id %}">{{ recipe.recipe_title }}</a>
                         </li>
                     {% endfor %}
                 </ul>

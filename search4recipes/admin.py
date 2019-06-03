@@ -5,5 +5,9 @@ from .models import Measurement, IngredientsInRecipes, Recipe, Ingredient
 
 admin.site.register(Ingredient)
 admin.site.register(Measurement)
-admin.site.register(Recipe)
 admin.site.register(IngredientsInRecipes)
+
+
+@admin.register(Recipe)
+class RecipeAdmin(admin.ModelAdmin):
+    fields = ('recipe_title', 'image', 'text')

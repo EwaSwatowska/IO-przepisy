@@ -11,16 +11,16 @@
                 <h3>Jakich składników chcesz użyć w przepisie? </h3>
                 <div>Plus oznacza, że chcesz ten składnik, minus oznacza, że nie.</div>
                 <div>
-                    <form method="post" action="{% url "recipe_list" %}">
-                        {% csrf_token %}
+                    <form method="get" action="{% url "recipe_list" %}">
+{#                        {% csrf_token %}#}
                         <datalist id="lista">
-                            {% for skladnik in lista %}
-                                <option value="{{ skladnik }}">
+                            {% for ingredient in lista %}
+                                <option value="{{ ingredient }}">
                             {% endfor %}
                         </datalist>
                         {% for i in '012345'|make_list %}
                             <div style="padding: 10px">
-                                <input list="lista" id="lista-skladnikow" name="lista-skladnikow{{ i }}"/>
+                                <input list="lista" id="ingredient-list{{ i }}" name="ingredient-list{{ i }}"/>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio"
                                            name="isPositive{{ i }}"
@@ -46,7 +46,7 @@
                 {% if przepisy %}
                     <ul>
                         {% for przepis in przepisy %}
-                            <li><a href="#">{{ przepis.nazwa }}</a></li>
+                            <li><a href="#">{{ przepis }}</a></li>
                         {% endfor %}
                     </ul>
                 {% else %}

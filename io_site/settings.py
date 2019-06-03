@@ -163,14 +163,9 @@ CACHE_BACKEND = "file://" + os.path.join(BASE_PATH, 'cache')
 MEDIA_ROOT = join(BASE_PATH, 'media')
 MEDIA_URL = '/media/'
 
-PHOTO_MEDIA_URL = 'photos/'
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
 AUTH_PROFILE_MODULE = 'accounts.UserProfiles'
-
-FS_IMAGE_UPLOADS = os.path.join(MEDIA_ROOT, 'photos/')
-FS_IMAGE_URL = os.path.join(MEDIA_URL, 'photos/')

@@ -17,11 +17,11 @@ def recipe_detail(request, recipe_id):
 
 def recipe_list(request):
     try:
-        ingredients = [request.POST['lista-skladnikow' + str(i)] for i in range(6) if
-                       request.POST['isPositive' + str(i)] == 'on' and request.POST['lista-skladnikow' + str(i)] != '']
-        ingredients_not = [request.POST['lista-skladnikow' + str(i)] for i in range(6) if
-                           request.POST['isPositive' + str(i)] == 'off' and request.POST[
-                               'lista-skladnikow' + str(i)] != '']
+        ingredients = [request.GET['ingredient-list' + str(i)] for i in range(6) if
+                       request.GET['isPositive' + str(i)] == 'on' and request.GET['ingredient-list' + str(i)] != '']
+        ingredients_not = [request.GET['ingredient-list' + str(i)] for i in range(6) if
+                           request.GET['isPositive' + str(i)] == 'off' and request.GET[
+                               'ingredient-list' + str(i)] != '']
         for ingredient in ingredients + ingredients_not:
             try:
                 Ingredient.objects.get(ingredient_name=ingredient)
@@ -31,7 +31,7 @@ def recipe_list(request):
         paginator = Paginator(recipes, 10)
         page = request.GET.get('page', 1)
         recipes = paginator.get_page(page)
-        return render(request, 'wyniki.html', {'recipes': recipes})
+        return render(request, 'wyniki.html', {'recipes': recipes, 'last_page': paginator.num_pages})
     except KeyError:
         return redirect('home')
 

@@ -11,8 +11,8 @@
     padding: 70px;
 }
 
-.img-fluid {
-    padding: 30px;
+.img-thumbnail {
+    max-height: 20em;
 }
 
 .wyniki-container {

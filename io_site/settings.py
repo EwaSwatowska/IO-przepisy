@@ -160,7 +160,8 @@ BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 
 CACHE_BACKEND = "file://" + os.path.join(BASE_PATH, 'cache')
 
-MEDIA_ROOT = join(BASE_PATH, 'media')
+MEDIA_ROOT = join(BASE_DIR, 'media')
+IMAGE_DIR = 'image'
 MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'

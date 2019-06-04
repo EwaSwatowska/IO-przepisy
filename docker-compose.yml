@@ -1,21 +1,22 @@
 version: '3'
 services:
-#  io-przepisy:
-#    build: .
-#    ports:
-#      - "80:8000"
-#    environment:
-#      - SECRET_KEY='SECRET'
-#      - POSTGRES_HOST=postgres
-#      - POSTGRES_PORT=5432
-#      - POSTGRES_PASSWORD=io-przepisy
-#      - SUPER_EMAIL=admin@io-przepisy.com
-#      - SUPER_USERNAME=admin
-#      - SUPER_PASSWORD=mypass1234
+  io-przepisy:
+    build: .
+    ports:
+      - "80:8000"
+    environment:
+      - SECRET_KEY='SECRET'
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_PASSWORD=io-przepisy
+      - SUPER_EMAIL=admin@io-przepisy.com
+      - SUPER_USERNAME=admin
+      - SUPER_PASSWORD=mypass1234
+      - LOAD_DEMO=1 #0 to not use demo data
   postgres:
     image: "postgres:11"
     environment:
-      POSTGRES_PASSWORD: 'io-przepisy'
-      POSTGRES_DB: 'CookBook'
+      - POSTGRES_PASSWORD='io-przepisy'
+      - POSTGRES_DB='CookBook'
     ports:
       - "5433:5432"

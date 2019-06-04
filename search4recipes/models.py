@@ -36,9 +36,9 @@ class Recipe(models.Model):
     """
     recipe_title = models.CharField(max_length=250, verbose_name=_('Nazwa przepisu'))
     slug = AutoSlugField(_('slug'), populate_from='recipe_title', unique=True)
-    image = models.ImageField(_('Zdjęcie przepisu'), blank=True, upload_to=settings.MEDIA_ROOT)
+    image = models.ImageField(_('Zdjęcie przepisu'), blank=True, upload_to=settings.IMAGE_DIR)
     rate = models.FloatField(_('Ocena'), default=0)
-    text = models.TextField(_('Treść przepisu'), default="")
+    text = models.TextField(_('Treść przepisu'), default="", help_text='Użyj <br> aby przejść do nowje linii.')
     amount_of_rates = models.IntegerField(_('Ilosc_ocen'), default=0)
     ingredients = models.ManyToManyField(Ingredient, through='search4recipes.IngredientsInRecipes')
 

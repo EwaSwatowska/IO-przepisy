@@ -50,17 +50,6 @@
                 <h5>Ostatnio czytane:</h5>
                     <ul id="recipe_list">
                     </ul>
-            <!--
-                 if przepisy
-                    <ul>
-                         for przepis in przepisy
-                            <li><a href=""> przepis.nazwa }}</a></li>
-                         endfor %}
-                    </ul>
-                 else %}
-                    <div>Nie odwiedziłeś jeszcze żadnych przepisów</div>
-                 endif %}
-                -->
             </div>
         </div>
     </div>
@@ -70,18 +59,21 @@
             var list=document.getElementById('recipe_list');
             var result;
 
-            let cookie_visited_recipes=$.cookie('visited_recipes');
+            let cookie_visited_recipes = $.cookie('visited_recipes');
+
             if (typeof cookie_visited_recipes !== 'undefined') {
 
-                let visited_recipes=convertCookieToArray(cookie_visited_recipes);
-                result='<ul>';
-                for(i=visited_recipes.length-1;i>=0;i--){
-                    result+='<li><a href="#">'+visited_recipes[i]+'</a></li>';
+                let visited_recipes = convertCookieToArray(cookie_visited_recipes);
+                result = '<ul>';
+                for (i = visited_recipes.length-1; i >= 0; i--) {
+                    result += '<li><a href="http://127.0.0.1:8000/recipe/' + visited_recipes[i] + '/">' + visited_recipes[i] + '</a></li>';
                 }
-                result+='</ul>';
-            } else {
-                result='<div>Nie odwiedziłeś jeszcze żadnych przepisów</div>';
+                result += '</ul>';
             }
+             else
+                {
+                    result = '<div>Nie odwiedziłeś jeszcze żadnych przepisów</div>';
+                }
             list.insertAdjacentHTML('afterbegin',result);
         });
     </script>

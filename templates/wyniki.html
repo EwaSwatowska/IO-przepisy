@@ -1,13 +1,9 @@
 {% extends "base.html" %}
-{% block javascript %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-    <script src="{{ project_path }}\static\js\przepis.js"></script>
-    <script src="{{ project_path }}\static\js\cookies.js"></script>
-    <script src="{{ project_path }}\static\js\jquery.cookie.js"></script>
-    <script type="text/javascript" src="{{ project_path }}\static\js\jquery.rateit.js\jquery.rateit.min.js"></script>
-    <script type="text/javascript" src="{{ project_path }}\static\js\jquery.rateit.js"></script>
-{% endblock %}
 
+{% load static %}
+{% block javascript-extra %}
+    <script src="{% static "js/przepis.js" %}"></script>
+{% endblock %}
 {% block body %}
     <div class="container wyniki-container">
         <div class="row">
@@ -21,10 +17,7 @@
             </div>
             <div class="col-md-4">
                 <h5>Ostatnio czytane:</h5>
-                <ul>
-                    {#                    {% for przepis in przepisy %}#}
-                    {#                        <li><a href="#">{{ przepis.nazwa }}</a></li>#}
-                    {#                    {% endfor %}#}
+                <ul id="recipe_list">
                 </ul>
             </div>
         </div>

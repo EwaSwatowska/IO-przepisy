@@ -16,7 +16,7 @@ services:
   postgres:
     image: "postgres:11"
     environment:
-      - POSTGRES_PASSWORD='io-przepisy'
-      - POSTGRES_DB='CookBook'
+      - POSTGRES_PASSWORD=io-przepisy
+      - POSTGRES_DB=CookBook
     ports:
       - "5433:5432"

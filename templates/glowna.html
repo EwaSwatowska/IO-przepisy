@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
+{% block javascript-extra %}
+    <script src="{% static "js/przepis.js" %}"></script>
+{% endblock %}
+
 {% block body %}
     <div class="container glowna-container">
         <div class="row">
@@ -43,16 +48,41 @@
             </div>
             <div class="col-md-4">
                 <h5>Ostatnio czytane:</h5>
-                {% if przepisy %}
-                    <ul>
-                        {% for przepis in przepisy %}
-                            <li><a href="#">{{ przepis.nazwa }}</a></li>
-                        {% endfor %}
+                    <ul id="recipe_list">
                     </ul>
-                {% else %}
+            <!--
+                 if przepisy
+                    <ul>
+                         for przepis in przepisy
+                            <li><a href=""> przepis.nazwa }}</a></li>
+                         endfor %}
+                    </ul>
+                 else %}
                     <div>Nie odwiedziłeś jeszcze żadnych przepisów</div>
-                {% endif %}
+                 endif %}
+                -->
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+
+            var list=document.getElementById('recipe_list');
+            var result;
+
+            let cookie_visited_recipes=$.cookie('visited_recipes');
+            if (typeof cookie_visited_recipes !== 'undefined') {
+
+                let visited_recipes=convertCookieToArray(cookie_visited_recipes);
+                result='<ul>';
+                for(i=visited_recipes.length-1;i>=0;i--){
+                    result+='<li><a href="#">'+visited_recipes[i]+'</a></li>';
+                }
+                result+='</ul>';
+            } else {
+                result='<div>Nie odwiedziłeś jeszcze żadnych przepisów</div>';
+            }
+            list.insertAdjacentHTML('afterbegin',result);
+        });
+    </script>
 {% endblock %}

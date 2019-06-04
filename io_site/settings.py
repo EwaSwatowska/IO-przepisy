@@ -57,7 +57,7 @@ SECRET_KEY = get_env_variable('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.99.100', '127.0.0.1']
 
 # allowing anonymous rating
 STAR_RATINGS_ANONYMOUS = True
@@ -119,7 +119,7 @@ DATABASES = {
         'NAME': 'CookBook',
         'USER': 'postgres',
         'PASSWORD': get_env_variable('POSTGRES_PASSWORD', 'io-przepisy'),
-        'HOST': get_env_variable('POSTGRES_HOST', 'localhost'),
+        'HOST': get_env_variable('POSTGRES_HOST', '192.168.99.100'),
         'PORT': get_env_variable('POSTGRES_PORT', 5433),
     }
 }

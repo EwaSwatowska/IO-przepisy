@@ -62,6 +62,7 @@
     <script>
         $(document).ready(function () {
             let cur_recipe = {{ przepis.id }};
+            let cur_recipe_title=document.getElementsByTagName('h4')[0].innerHTML.toString();
             let cookie_voted_recipes = $.cookie('voted_recipes');
             let voted_recipes = convertCookieToArray(cookie_voted_recipes);
             $(".rateit").bind('rated', function (event, value) {
@@ -72,14 +73,19 @@
                 }
             });
             let cookie_visited_recipes = $.cookie('visited_recipes');
+            let cookie_recipe_name = $.cookie('recipe_name');
             let visited_recipes = convertCookieToArray(cookie_visited_recipes);
+            let recipe_name = convertCookieToArray(cookie_recipe_name);
             if (!visited_recipes.includes(cur_recipe)) {
                 visited_recipes.push(cur_recipe);
+                recipe_name.push(cur_recipe_title);
             }
             if (visited_recipes.length > 5) {
-                visited_recipes = visited_recipes.slice(5);
+                visited_recipes = visited_recipes.slice(-4,-0);
+                recipe_name = recipe_name.slice(-4,-0);
             }
             $.cookie('visited_recipes', JSON.stringify(visited_recipes), {expires: 1000, path: '/'});
+            $.cookie('recipe_name', JSON.stringify(recipe_name), {expires: 1000, path: '/'});
         });
     </script>
 {% endblock %}

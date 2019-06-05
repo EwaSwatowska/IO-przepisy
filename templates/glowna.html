@@ -60,13 +60,13 @@
             var result;
 
             let cookie_visited_recipes = $.cookie('visited_recipes');
-
             if (typeof cookie_visited_recipes !== 'undefined') {
 
                 let visited_recipes = convertCookieToArray(cookie_visited_recipes);
+                let recipe_title=convertCookieToArray($.cookie('recipe_name'));
                 result = '<ul>';
                 for (i = visited_recipes.length-1; i >= 0; i--) {
-                    result += '<li><a href="http://127.0.0.1:8000/recipe/' + visited_recipes[i] + '/">' + visited_recipes[i] + '</a></li>';
+                    result += '<li><a href="http://127.0.0.1:8000/recipe/' + visited_recipes[i] + '/">' + recipe_title[i] + '</a></li>';
                 }
                 result += '</ul>';
             }

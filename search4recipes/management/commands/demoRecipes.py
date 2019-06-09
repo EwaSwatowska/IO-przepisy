@@ -22,7 +22,7 @@ class Command(BaseCommand):
             measurement.measurement_use = measurement_item[1]
             measurement.save()
         recipes = [('Marchewka z marchewką', '1.Pokrój marchewkę. 2.Zjedz', [('Marchewka', 1, "Kilogram")]),
-                   ('Marchewka z groszkiem', '1.Pokrój Marchewkę. 2.Dodaj Groszek. 3. Zjedz',
+                   ('Marchewka z groszkiem', '1.Pokrój Marchewkę.<br> 2.Dodaj Groszek.<br> 3. Zjedz',
                     [('Marchewka', 1, "Kilogram"), ('Groszek', 1, "Gram")])]
         for recipe_list in recipes:
             recipe = Recipe()

@@ -1,11 +1,8 @@
 from __future__ import unicode_literals
 
-# for creating and manipulating models
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from autoslug import AutoSlugField
-from django.contrib.auth.models import User
-from django.core.files.storage import FileSystemStorage
 
 from io_site import settings
 
@@ -19,9 +16,6 @@ class Ingredient(models.Model):
     def __init__(self, *args, **kwargs):
         super(Ingredient, self).__init__(*args, **kwargs)
 
-    def __unicode__(self):
-        return self.ingredient_name
-
     def __str__(self):
         return '{}'.format(self.ingredient_name)
 
@@ -34,28 +28,52 @@ class Recipe(models.Model):
     """
     Model przepisu: tablica przepisow
     """
-    recipe_title = models.CharField(max_length=250, verbose_name=_('Nazwa przepisu'))
-    slug = AutoSlugField(_('slug'), populate_from='recipe_title', unique=True)
-    image = models.ImageField(_('Zdjęcie przepisu'), blank=True, upload_to=settings.PHOTO_MEDIA_URL,
-                              storage=FileSystemStorage(location=settings.FS_IMAGE_UPLOADS,
-                                                        base_url=settings.FS_IMAGE_URL))
+    DIFFICULTY_CHOICES = ((0, _("Łatwy")), (1, _("Średni")), (2, _("Trudny")))
+    recipe_title = models.CharField(max_length=250, verbose_name=_('Nazwa przepisu'), unique=True)
+    image = models.ImageField(_('Zdjęcie przepisu'), blank=True, upload_to=settings.IMAGE_DIR)
     rate = models.FloatField(_('Ocena'), default=0)
-    text = models.TextField(_('Treść przepisu'), default="")
-    amount_of_rates = models.IntegerField(_('Ilosc_ocen'), default=0)
+    text = models.TextField(_('Treść przepisu'), default="", help_text='Użyj &lt;br&gt; aby przejść do nowje linii.')
+    amount_of_rates = models.IntegerField(_('Ilość ocen'), default=0)
+    preparation_time = models.IntegerField(_('Czas przygotowania'), default=10,
+                                           help_text="Czas przygotowania w minutach")
+    difficulty_level = models.IntegerField(_('Poziom trudności'), choices=DIFFICULTY_CHOICES, default=1)
     ingredients = models.ManyToManyField(Ingredient, through='search4recipes.IngredientsInRecipes')
-
-    def __unicode__(self):
-        return self.recipe_title
 
     def __str__(self):
         return '{}'.format(self.recipe_title)
 
     @staticmethod
-    def get_by_ingredients(ingredients, ingredients_not=None):
+    def get_filtered_recipes(ingredients=None, ingredients_not=None, min_time: int = None, max_time: int = None,
+                             difficulty_level: int = None):
+        """
+        Metoda służąca do odfiltrowania wyników przepisów. Brak filtrów zwróci wszystkie przepisy
+        :param ingredients: lista składników, które muszą być wykorzystane w przepise
+        :param ingredients_not: lista składników, które nie mogą pojawić się w przepisie
+        :param min_time: minimalny czas przygotowania potrawy
+        :param max_time: maksymalny czas przygotowania potrawy
+        :param difficulty_level: poziom trudności potrawy
+        :return:
+        """
+        if ingredients is None:
+            ingredients = list()
         if ingredients_not is None:
             ingredients_not = list()
-        return Recipe.objects.filter(ingredients__ingredient_name__in=ingredients).exclude(
-            ingredients__ingredient_name__in=ingredients_not)
+        result = Recipe.objects.all()
+        for ingredient in ingredients:
+            result = result.filter(ingredients__ingredient_name__contains=ingredient)
+        result = result.exclude(ingredients__ingredient_name__in=ingredients_not)
+        if min_time is not None:
+            result = result.filter(preparation_time__gte=min_time)
+        if max_time is not None:
+            result = result.filter(preparation_time__lte=max_time)
+        if difficulty_level is not None:
+            result = result.filter(difficulty_level__exact=difficulty_level)
+        return result.order_by('id')
+
+    def get_difficuty_level_name(self):
+        for x in self.DIFFICULTY_CHOICES:
+            if x[0] == self.difficulty_level:
+                return x[1]
 
     class Meta:
         verbose_name = _('Przepis')
@@ -69,9 +87,6 @@ class Measurement(models.Model):
     unit = models.CharField(max_length=250, unique=True, verbose_name=_('Nazwa'))
     measurement_use = models.CharField(max_length=60, verbose_name=_('Jednostka w przepisie'))
 
-    def __unicode__(self):
-        return self.unit
-
     def __str__(self):
         return format(self.unit)
 
@@ -82,16 +97,13 @@ class Measurement(models.Model):
 
 class IngredientsInRecipes(models.Model):
     """
-    Model skladnikow w przepisach: tablica przepisow
+    Model skladnikow w przepisach: zapewnia realcję wiele-do-wielu w pomiędzy przepisami a składnikami
     """
     ingredient = models.ForeignKey(Ingredient, verbose_name=_('Składnik'), on_delete=models.PROTECT)
     recipe = models.ForeignKey(Recipe, verbose_name=_('Przepis'), on_delete=models.PROTECT)
     measurement = models.ForeignKey(Measurement, verbose_name=_('Miara'), blank=False, null=False,
                                     on_delete=models.PROTECT)
     amount = models.FloatField(_('Ilość'), max_length=200, blank=False, null=False, default=1)
-
-    def __unicode__(self):
-        return self.recipe.recipe_title
 
     def __str__(self):
         return '{} - {}'.format(self.recipe.recipe_title, self.ingredient.ingredient_name)

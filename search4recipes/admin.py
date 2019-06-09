@@ -10,4 +10,4 @@ admin.site.register(IngredientsInRecipes)
 
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
-    fields = ('recipe_title', 'image', 'text')
+    fields = ('recipe_title', 'difficulty_level', 'preparation_time', 'image', 'text',)

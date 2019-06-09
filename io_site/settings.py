@@ -57,7 +57,7 @@ SECRET_KEY = get_env_variable('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.99.100', '127.0.0.1']
+ALLOWED_HOSTS = ['192.168.99.100', '127.0.0.1', 'localhost']
 
 # allowing anonymous rating
 STAR_RATINGS_ANONYMOUS = True
@@ -119,7 +119,7 @@ DATABASES = {
         'NAME': 'CookBook',
         'USER': 'postgres',
         'PASSWORD': get_env_variable('POSTGRES_PASSWORD', 'io-przepisy'),
-        'HOST': get_env_variable('POSTGRES_HOST', '192.168.99.100'),
+        'HOST': get_env_variable('POSTGRES_HOST', 'localhost'),
         'PORT': get_env_variable('POSTGRES_PORT', 5433),
     }
 }
@@ -160,10 +160,9 @@ BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 
 CACHE_BACKEND = "file://" + os.path.join(BASE_PATH, 'cache')
 
-MEDIA_ROOT = join(BASE_PATH, 'media')
+MEDIA_ROOT = join(BASE_DIR, 'media')
+IMAGE_DIR = 'image'
 MEDIA_URL = '/media/'
-
-PHOTO_MEDIA_URL = 'photos/'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
@@ -171,6 +170,3 @@ STATICFILES_DIRS = [
 ]
 
 AUTH_PROFILE_MODULE = 'accounts.UserProfiles'
-
-FS_IMAGE_UPLOADS = os.path.join(MEDIA_ROOT, 'photos/')
-FS_IMAGE_URL = os.path.join(MEDIA_URL, 'photos/')

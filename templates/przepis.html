@@ -10,9 +10,11 @@
             <div class="col-md-12">
                 <h4>{{ przepis.recipe_title }}</h4>
                 {% if przepis.image %}
-                    <div>
-                        <img class="img-fluid" src={{ przepis.image }} alt="Zdjecie_przepisu">
                     </div>
+                    <div class="col-md-6">
+                        <img class="img-thumbnail mx-auto d-block" src={{ przepis.image.url }} alt="Zdjecie_przepisu">
+                    </div>
+                    <div class="col-md-6">
                 {% endif %}
                 <div>
                     <div>
@@ -22,6 +24,9 @@
                         <amount_rates>{{ przepis.amount_of_rates }}</amount_rates>
                     </div>
                     <input step="1" id="rating">
+                    <div>
+                        Czas prygotowania: {{ przepis.preparation_time }}min | Poziom trudności: {{ przepis.get_difficuty_level_name }}
+                    </div>
                     <div class="rateit" data-rateit-mode="font" style="font-size:2em" data-rateit-resetable="false"
                          data-rateit-min="0" data-rateit-max="5" data-rateit-backingfld="#rating" id="rating-div">
                     </div>
@@ -52,9 +57,15 @@
                         {% endfor %}
                     </ul>
                 </div>
+                </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
                 <div>
                     <h5>Treść przepisu: </h5>
-                    {{ przepis.text }}
+                    {{ przepis.text|safe }}
                 </div>
             </div>
         </div>
@@ -62,7 +73,6 @@
     <script>
         $(document).ready(function () {
             let cur_recipe = {{ przepis.id }};
-            let cur_recipe_title=document.getElementsByTagName('h4')[0].innerHTML.toString();
             let cookie_voted_recipes = $.cookie('voted_recipes');
             let voted_recipes = convertCookieToArray(cookie_voted_recipes);
             $(".rateit").bind('rated', function (event, value) {
@@ -72,20 +82,16 @@
                     alert("Oceniłeś już ten przepis!")
                 }
             });
+
             let cookie_visited_recipes = $.cookie('visited_recipes');
-            let cookie_recipe_name = $.cookie('recipe_name');
             let visited_recipes = convertCookieToArray(cookie_visited_recipes);
-            let recipe_name = convertCookieToArray(cookie_recipe_name);
-            if (!visited_recipes.includes(cur_recipe)) {
+            if (visited_recipes.includes(cur_recipe)) {
                 visited_recipes.push(cur_recipe);
-                recipe_name.push(cur_recipe_title);
             }
             if (visited_recipes.length > 5) {
-                visited_recipes = visited_recipes.slice(-4,-0);
-                recipe_name = recipe_name.slice(-4,-0);
+                visited_recipes = visited_recipes.slice(5);
             }
             $.cookie('visited_recipes', JSON.stringify(visited_recipes), {expires: 1000, path: '/'});
-            $.cookie('recipe_name', JSON.stringify(recipe_name), {expires: 1000, path: '/'});
         });
     </script>
 {% endblock %}

@@ -1,9 +1,4 @@
 {% extends "base.html" %}
-
-{% load static %}
-{% block javascript-extra %}
-    <script src="{% static "js/przepis.js" %}"></script>
-{% endblock %}
 {% block body %}
     <div class="container wyniki-container">
         <div class="row">
@@ -25,19 +20,21 @@
             <div class="col-md-4">
                 {% if recipes.has_previous %}
                     <div class="pager">
-                        <a href="?page={{ recipes.previous_page_number }}" class="btn btn-success" role="button">Poprzednia
-                            strona</a>
+                        <a href="?{% url_replace page=recipes.previous_page_number %}" class="btn btn-success"
+                           role="button">Poprzednia strona</a>
                     </div>
                 {% endif %}
             </div>
             <div class="col-md-4">
-                {{ recipes.number }} / {{ recipes.end_index }}
+                <div class="pager">
+                    Strona: {{ recipes.number }} / {{ last_page }}
+                </div>
             </div>
             <div class="col-md-4">
                 {% if recipes.has_next %}
                     <div class="pager">
-                        <a href="?page={{ recipes.next_page_number }}" class="btn btn-success" role="button">Następna
-                            strona</a>
+                        <a href="?{% url_replace page=recipes.next_page_number %}" class="btn btn-success"
+                           role="button">Następna strona</a>
                     </div>
                 {% endif %}
             </div>

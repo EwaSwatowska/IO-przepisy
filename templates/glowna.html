@@ -8,24 +8,24 @@
     <div class="container glowna-container">
         <div class="row">
             <div class="col-md-8">
-                {% if ingredientNotFound %}
+                {% if error %}
                     <div class="alert alert-danger" role="alert">
-                        Nie odnaleziono składnika: {{ ingredientNotFound }}.
+                        {{ error }}
                     </div>
                 {% endif %}
                 <h3>Jakich składników chcesz użyć w przepisie? </h3>
-                <div>Plus oznacza, że chcesz ten składnik, minus oznacza, że nie.</div>
+                <div>Plus oznacza, że ten składnik musi się pojawić w przepisie, a minus oznacza, że nie może.</div>
                 <div>
-                    <form method="post" action="{% url "recipe_list" %}">
-                        {% csrf_token %}
+                    <form method="get" action="{% url "recipe_list" %}">
                         <datalist id="lista">
-                            {% for skladnik in lista %}
-                                <option value="{{ skladnik }}">
+                            {% for ingredient in lista %}
+                                <option value="{{ ingredient }}">
                             {% endfor %}
                         </datalist>
                         {% for i in '012345'|make_list %}
-                            <div style="padding: 10px">
-                                <input list="lista" id="lista-skladnikow" name="lista-skladnikow{{ i }}"/>
+                            <div class="search-form form-inline">
+                                <input class="form-control" list="lista" id="ingredient-list{{ i }}"
+                                       name="ingredient-list{{ i }}"/>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio"
                                            name="isPositive{{ i }}"
@@ -40,6 +40,39 @@
                                 </div>
                             </div>
                         {% endfor %}
+                        <div class="search-form">
+                            <label for="min-time">Czas przygotowania w minutach</label>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">min</span>
+                                        </div>
+                                        <input class="form-control" type="number" name="min-time" id="min-time"
+                                               value="0" min="0">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupPrepend">max</span>
+                                        </div>
+                                        <input class="form-control" type="number" name="max-time" id="max-time"
+                                               value="600" min="0">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-group">
+                                    <label for="difficulty-level">Poziom trudności</label>
+                                    <select class="form-control" id="difficulty-level" name="difficulty-level">
+                                        {% for option in levels %}
+                                            <option>{{ option }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         <div class="szukaj">
                             <button type="submit" class="btn btn-success btn-lg">Szukaj</button>
                         </div>
@@ -48,33 +81,31 @@
             </div>
             <div class="col-md-4">
                 <h5>Ostatnio czytane:</h5>
-                    <ul id="recipe_list">
-                    </ul>
+                <ul id="recipe_list">
+                </ul>
             </div>
         </div>
     </div>
     <script>
         $(document).ready(function () {
 
-            var list=document.getElementById('recipe_list');
+            var list = document.getElementById('recipe_list');
             var result;
 
             let cookie_visited_recipes = $.cookie('visited_recipes');
             if (typeof cookie_visited_recipes !== 'undefined') {
 
                 let visited_recipes = convertCookieToArray(cookie_visited_recipes);
-                let recipe_title=convertCookieToArray($.cookie('recipe_name'));
+                let recipe_title = convertCookieToArray($.cookie('recipe_name'));
                 result = '<ul>';
-                for (i = visited_recipes.length-1; i >= 0; i--) {
+                for (i = visited_recipes.length - 1; i >= 0; i--) {
                     result += '<li><a href="http://127.0.0.1:8000/recipe/' + visited_recipes[i] + '/">' + recipe_title[i] + '</a></li>';
                 }
                 result += '</ul>';
+            } else {
+                result = '<div>Nie odwiedziłeś jeszcze żadnych przepisów</div>';
             }
-             else
-                {
-                    result = '<div>Nie odwiedziłeś jeszcze żadnych przepisów</div>';
-                }
-            list.insertAdjacentHTML('afterbegin',result);
+            list.insertAdjacentHTML('afterbegin', result);
         });
     </script>
 {% endblock %}

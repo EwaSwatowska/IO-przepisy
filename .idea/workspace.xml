@@ -1,268 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c08d453c-e164-45a0-a67e-c0b8534aefa4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/IO-przepisy.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Diagramy/diagramCZ1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Diagramy/diagramCZ2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Diagramy/diagramCZ3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Diagramy/diagramCZ4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Diagramy/diagramCZ5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Diagramy/diagramPU.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Gantt/nowy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Lista wymagań.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Norma IEEE 830 - wersja z 04.2019.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Norma IEEE 830 - wersja z 06.2019.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Obrazy_interfejsu_uzytkownika/interface1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Obrazy_interfejsu_uzytkownika/interface2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Obrazy_interfejsu_uzytkownika/interface3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Testy/Testy-jednostkowe-backend-integracyjne.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Testy/Testy-jednostkowe-frontend.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Testy/Testy-systemowe-7.06.2019.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/Testy/Testy-systemowe-v2-11.06.2019.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dokumentacja_projektu/instrukcje.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kod/search4recipes/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kod/search4recipes/migrations/0002_auto_20190602_1217.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kod/search4recipes/migrations/0003_auto_20190602_2109.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kod/search4recipes/migrations/0004_auto_20190604_1219.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kod/search4recipes/migrations/0005_auto_20190604_1224.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kod/search4recipes/migrations/0006_auto_20190604_1240.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kod/search4recipes/migrations/0007_auto_20190609_1044.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kod/static/js/delete.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kod/static/star.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/io_site/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/io_site/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/io_site/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/io_site/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/io_site/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/io_site/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/io_site/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/io_site/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/photos/photos/sirloin.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/photos/photos/sirloin.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search4recipes/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/search4recipes/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search4recipes/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/search4recipes/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search4recipes/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/search4recipes/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search4recipes/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/search4recipes/errors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search4recipes/management/commands/demoRecipes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/search4recipes/management/commands/demoRecipes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search4recipes/management/commands/initAdmin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/search4recipes/management/commands/initAdmin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search4recipes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/search4recipes/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search4recipes/serializers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/search4recipes/templatetags/tag.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/search4recipes/templatetags/tag.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search4recipes/tests/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Program/info.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search4recipes/tests/testModels.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/search4recipes/tests/testModels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search4recipes/tests/testRouter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/search4recipes/tests/testRouter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search4recipes/tests/testViews.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/search4recipes/tests/testViews.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search4recipes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/search4recipes/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search4recipes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/search4recipes/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/delete.gif" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/static/delete.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/favicon_64.ico" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/static/favicon_64.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/glowna.css" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/static/glowna.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/UnitTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/static/js/UnitTests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/cookies.js" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/static/js/cookies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.cookie.js" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/static/js/jquery.cookie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.rateit.js" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/static/js/jquery.rateit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.rateit.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/static/js/jquery.rateit.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.rateit.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/static/js/jquery.rateit.min.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/przepis.js" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/static/js/przepis.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/kitek.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/rateit.css" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/static/rateit.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/star.gif" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/static/js/star.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/glowna.html" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/templates/glowna.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/przepis.html" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/templates/przepis.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/wyniki.html" beforeDir="false" afterPath="$PROJECT_DIR$/Kod/templates/wyniki.html" afterDir="false" />
+    <list default="true" id="a2d44577-1df5-47d7-ab5e-adbbeaa040fd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/IO-przepisy.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
-  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
-    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Kod/search4recipes/templatetags/tag.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Kod/static/js/cookies.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Kod/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Kod/search4recipes/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Kod/templates/przepis.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Kod/static/js/UnitTests.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Kod/static/js/przepis.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Kod/search4recipes/errors.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Kod/search4recipes/apps.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Kod/search4recipes/admin.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>postgres</find>
-      <find>IO-prze</find>
-      <find>static</find>
-      <find>STAT</find>
-      <find>templa</find>
-      <find>storage</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="szablony" />
-      </map>
-    </option>
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/manage.py" />
-        <option value="$PROJECT_DIR$/static/przepis.css" />
-        <option value="$PROJECT_DIR$/static/wyniki.css" />
-        <option value="$PROJECT_DIR$/search4recipes/serializers.py" />
-        <option value="$PROJECT_DIR$/search4recipes/management/commands.py" />
-        <option value="$PROJECT_DIR$/static/.env" />
-        <option value="$PROJECT_DIR$/search4recipes/management/commands/initAdmin.py" />
-        <option value="$PROJECT_DIR$/search4recipes/urls.py" />
-        <option value="$PROJECT_DIR$/static/js/przepis.js" />
-        <option value="$PROJECT_DIR$/search4recipes/templatetags/tag.py" />
-        <option value="$PROJECT_DIR$/io_site/urls.py" />
-        <option value="$PROJECT_DIR$/Dockerfile" />
-        <option value="$PROJECT_DIR$/io_site/settings.py" />
-        <option value="$PROJECT_DIR$/static/glowna.css" />
-        <option value="$PROJECT_DIR$/search4recipes/errors.py" />
-        <option value="$PROJECT_DIR$/search4recipes/admin.py" />
-        <option value="$PROJECT_DIR$/templates/wyniki.html" />
-        <option value="$PROJECT_DIR$/templates/glowna.html" />
-        <option value="$PROJECT_DIR$/search4recipes/management/commands/demoRecipes.py" />
-        <option value="$PROJECT_DIR$/templates/przepis.html" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/search4recipes/tests.py" />
-        <option value="$PROJECT_DIR$/search4recipes/models.py" />
-        <option value="$PROJECT_DIR$/search4recipes/tests/testModels.py" />
-        <option value="$PROJECT_DIR$/search4recipes/tests/testRouter.py" />
-        <option value="$PROJECT_DIR$/search4recipes/views.py" />
-        <option value="$PROJECT_DIR$/search4recipes/tests/testViews.py" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/static/js/UnitTests.js" />
-        <option value="$PROJECT_DIR$/Kod/docker-compose.yml" />
-        <option value="$PROJECT_DIR$/docker-compose.yml" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/README.adoc" />
-        <option value="$PROJECT_DIR$/Program/info.txt" />
-        <option value="$PROJECT_DIR$/Kod/search4recipes/tests/testViews.py" />
-        <option value="$PROJECT_DIR$/Kod/search4recipes/errors.py" />
-        <option value="$PROJECT_DIR$/Kod/search4recipes/urls.py" />
-        <option value="$PROJECT_DIR$/Kod/search4recipes/views.py" />
-        <option value="$PROJECT_DIR$/Kod/search4recipes/admin.py" />
-        <option value="$PROJECT_DIR$/Kod/static/js/UnitTests.js" />
-        <option value="$PROJECT_DIR$/Kod/templates/przepis.html" />
-      </list>
-    </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-12" />
@@ -275,7 +32,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -283,52 +39,18 @@
               <item name="IO-przepisy" type="b2602c69:ProjectViewProjectNode" />
               <item name="IO-przepisy" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="IO-przepisy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IO-przepisy" type="462c0819:PsiDirectoryNode" />
-              <item name="Dokumentacja_projektu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IO-przepisy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IO-przepisy" type="462c0819:PsiDirectoryNode" />
-              <item name="Dokumentacja_projektu" type="462c0819:PsiDirectoryNode" />
-              <item name="Gantt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IO-przepisy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IO-przepisy" type="462c0819:PsiDirectoryNode" />
-              <item name="Dokumentacja_projektu" type="462c0819:PsiDirectoryNode" />
-              <item name="Obrazy_interfejsu_uzytkownika" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IO-przepisy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IO-przepisy" type="462c0819:PsiDirectoryNode" />
-              <item name="Kod" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\pawli\Desktop\io-przepisy\IO-przepisy\static" />
-      <recent name="C:\Users\pawli\Desktop\io-przepisy\IO-przepisy\templates" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\pawli\Desktop\io-przepisy\IO-przepisy\Kod" />
-      <recent name="C:\Users\pawli\Desktop\io-przepisy\IO-przepisy" />
-    </key>
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -342,19 +64,15 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django server.IO-przepisy">
-    <configuration name="glowna.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/IO-przepisy/templates/glowna.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="IO-przepisy" type="Python.DjangoServer" factoryName="Django server">
       <module name="IO-przepisy" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DJANGO_SETTINGS_MODULE" value="io_site.settings" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\pawli\PycharmProjects\io_przepisy\venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -370,368 +88,51 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Django server.IO-przepisy" />
-      <item itemvalue="JavaScript Debug.glowna.html" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JavaScript Debug.glowna.html" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c08d453c-e164-45a0-a67e-c0b8534aefa4" name="Default Changelist" comment="" />
-      <created>1559066436581</created>
+      <changelist id="a2d44577-1df5-47d7-ab5e-adbbeaa040fd" name="Default Changelist" comment="" />
+      <created>1560291052518</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1559066436581</updated>
-      <workItem from="1559066438652" duration="828000" />
-      <workItem from="1559068938574" duration="404000" />
-      <workItem from="1559069851889" duration="10060000" />
-      <workItem from="1559112440377" duration="20997000" />
-      <workItem from="1559213273713" duration="21731000" />
-      <workItem from="1559306502042" duration="47000" />
-      <workItem from="1559306918216" duration="7072000" />
-      <workItem from="1559374820571" duration="1050000" />
-      <workItem from="1559462242403" duration="8387000" />
-      <workItem from="1559501560864" duration="3146000" />
-      <workItem from="1559547583334" duration="11419000" />
-      <workItem from="1559643213884" duration="6053000" />
-      <workItem from="1559917362581" duration="2111000" />
-      <workItem from="1560009379530" duration="1603000" />
-      <workItem from="1560061714975" duration="693000" />
-      <workItem from="1560062584026" duration="16424000" />
-      <workItem from="1560107993504" duration="7368000" />
-      <workItem from="1560209000235" duration="750000" />
-      <workItem from="1560209839191" duration="10182000" />
-      <workItem from="1560270953809" duration="8489000" />
+      <updated>1560291052518</updated>
+      <workItem from="1560291064888" duration="340000" />
     </task>
-    <task id="LOCAL-00001" summary="During integration">
-      <created>1559118185519</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1559118185519</updated>
-    </task>
-    <task id="LOCAL-00002" summary="During creating rating system">
-      <created>1559213387216</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1559213387216</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Updating rating system">
-      <created>1559311571222</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1559311571222</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Dockerized">
-      <created>1559338306271</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1559338306272</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Rating system completed">
-      <created>1559560229857</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1559560229857</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Fixed images and added ability to use demo data">
-      <created>1559645552617</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1559645552617</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Fixed images and added ability to use demo data">
-      <created>1559649838431</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1559649838432</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Added prepration time and difficulty level">
-      <created>1560083096201</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1560083096201</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added prepration time and difficulty level">
-      <created>1560083180512</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1560083180512</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Fixed visited recipes">
-      <created>1560127105004</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1560127105004</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138814000" />
+    <option name="totallyTimeSpent" value="340000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.34276477" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2497979" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32978722" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3280142" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4995958" weight="0.42805755" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39893618" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5004042" side_tool="true" weight="0.32978722" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2251773" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3280142" />
+      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="Database" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32983023" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3047696" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3280142" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4995958" visible="true" weight="0.4964539" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39893618" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5004042" side_tool="true" weight="0.32978722" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.53368795" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3280142" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32983023" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="During integration" />
-    <MESSAGE value="During creating rating system" />
-    <MESSAGE value="Updating rating system" />
-    <MESSAGE value="Dockerized" />
-    <MESSAGE value="Rating system completed" />
-    <MESSAGE value="Fixed images and added ability to use demo data" />
-    <MESSAGE value="Added prepration time and difficulty level" />
-    <MESSAGE value="Fixed visited recipes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed visited recipes" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/search4recipes/errors.py" />
-    <entry file="file://$PROJECT_DIR$/search4recipes/management/commands/demoRecipes.py" />
-    <entry file="file://$PROJECT_DIR$/search4recipes/tests.py" />
-    <entry file="file://$PROJECT_DIR$/templates/wyniki.html" />
-    <entry file="file://$PROJECT_DIR$/io_site/settings.py" />
-    <entry file="file://$PROJECT_DIR$/search4recipes/urls.py" />
-    <entry file="file://$PROJECT_DIR$/.gitignore" />
-    <entry file="file://$PROJECT_DIR$/templates/przepis.html" />
-    <entry file="file://$PROJECT_DIR$/search4recipes/views.py" />
-    <entry file="file://$PROJECT_DIR$/search4recipes/tests/testModels.py" />
-    <entry file="file://$PROJECT_DIR$/search4recipes/tests/testRouter.py" />
-    <entry file="file://$PROJECT_DIR$/search4recipes/tests/testViews.py" />
-    <entry file="file://$PROJECT_DIR$/templates/glowna.html" />
-    <entry file="file://$PROJECT_DIR$/templates/base.html" />
-    <entry file="file://$PROJECT_DIR$/search4recipes/models.py" />
-    <entry file="file://$PROJECT_DIR$/static/rateit.css" />
-    <entry file="file://$PROJECT_DIR$/static/glowna.css" />
-    <entry file="file://$PROJECT_DIR$/static/js/UnitTests.js" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/unittest/__init__.pyi">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="73" column="8" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/io_site/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/photos/photos/sirloin.jpeg" />
-    <entry file="file://$PROJECT_DIR$/Dokumentacja_projektu/Testy/Znane błędy" />
-    <entry file="file://$PROJECT_DIR$/search4recipes/apps.py" />
-    <entry file="file://$PROJECT_DIR$/requirements.txt" />
-    <entry file="file://$PROJECT_DIR$/Dockerfile" />
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml" />
-    <entry file="file://$PROJECT_DIR$/Kod/static/star.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/static/delete.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/static/glowna.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.adoc">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Program/info.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="118" lean-forward="true" selection-start-column="118" selection-end-column="118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/manage.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/search4recipes/tests/testRouter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/search4recipes/tests/testModels.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="105" column="32" lean-forward="true" selection-start-line="105" selection-start-column="32" selection-end-line="105" selection-end-column="32" />
-          <folding>
-            <element signature="e#24#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/search4recipes/tests/testViews.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/templates/wyniki.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/search4recipes/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/search4recipes/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/search4recipes/serializers.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/search4recipes/errors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/search4recipes/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/search4recipes/admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/static/js/przepis.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/static/js/UnitTests.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/static/js/cookies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/search4recipes/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/search4recipes/templatetags/tag.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/templates/przepis.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kod/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>

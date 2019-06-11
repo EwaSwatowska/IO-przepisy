@@ -60,7 +60,7 @@ class Recipe(models.Model):
             ingredients_not = list()
         result = Recipe.objects.all()
         for ingredient in ingredients:
-            result = result.filter(ingredients__ingredient_name__contains=ingredient)
+            result = result.filter(ingredients__ingredient_name__exact=ingredient)
         result = result.exclude(ingredients__ingredient_name__in=ingredients_not)
         if min_time is not None:
             result = result.filter(preparation_time__gte=min_time)

@@ -60,10 +60,14 @@ def recipe_list(request):
 
 def update_mark(request):
     recipe_id = request.GET.get("recipe_id")
-    mark = float(request.GET.get("mark"))
+    mark = int(request.GET.get("mark"))
+    if not (1 <= mark <= 5 and isinstance(mark, int)):
+        raise ValueError('Mark must be integer between 1 and 5.')
     if recipe_id is None or mark is None or not request.is_ajax():
         return JsonResponse({"ok": False})
     recipe = Recipe.objects.get(id=recipe_id)
+    if recipe.amount_of_rates < 0:
+        raise ValueError('Amount of rates can\'t be negative')
     recipe.rate = (recipe.rate * recipe.amount_of_rates + mark) / (recipe.amount_of_rates + 1)
     recipe.amount_of_rates += 1
     recipe.save()

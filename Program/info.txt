@@ -1,0 +1,1 @@
+Aplikacja jest napisana w Pythonie, nie ma potrzeby jej kompilacji. Instrukcja uruchomienia znajduje się w folderze Dokumentacja_projektu w pliku instrukcje.docx.

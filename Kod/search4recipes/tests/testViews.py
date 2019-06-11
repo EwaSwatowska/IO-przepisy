@@ -57,12 +57,12 @@ class testViews(TestCase):
                     "ingredient-list5": "marchew5", "isPositive5": '',
                     "ingredient-list0": "", "isPositive0": 'on',
                     "ingredient-1": "marchew87", 'difficulty-level': 'Dowolny',
-                    'min-time': 0, 'max-time': 100};
+                    'min-time': 0, 'max-time': 100}
         mock_get_page.return_value = lambda a: a
         request = type('', (object,), {"GET": get_list})()
-        recipes = ["Recipe no1"];
+        recipes = ["Recipe no1"]
         mock_get_filtered_recipes.return_value = type('', (object,), {"recipes": recipes, "count": lambda a: 1})();
-        views.recipe_list(request);
+        views.recipe_list(request)
         self.assertIn("['marchew1'], ['marchew2']", str(mock_get_filtered_recipes.call_args))
 
     @mock.patch("search4recipes.views.home")
